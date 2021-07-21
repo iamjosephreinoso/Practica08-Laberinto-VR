@@ -8,7 +8,7 @@ public class Key : MonoBehaviour {
     // Declare a GameObject named 'keyPoofPrefab' and assign the 'KeyPoof' prefab to the field in Unity
     // Declare a Door named 'door' and assign the top level 'Door' game object to the field in Unity
     public GameObject keyPoofPrefab;
-
+    public Door door;
 
     void Update () {
         // OPTIONAL-CHALLENGE: Animate the key rotating
@@ -30,9 +30,11 @@ public class Key : MonoBehaviour {
 
         Object.Instantiate(keyPoofPrefab, transform.position, transform.rotation);
         Destroy(gameObject, 0.5f);
-		// TODO: Unlock the door, display the poof effect, and remove the key from the scene
-		// Use 'door' to call the Door.Unlock() method
-		// Use Instantiate() to create a clone of the 'KeyPoof' prefab at this coin's position and with the 'KeyPoof' prefab's rotation
-		// Use Destroy() to delete the key after for example 0.5 seconds
-	}
+        // TODO: Unlock the door, display the poof effect, and remove the key from the scene
+        // Use 'door' to call the Door.Unlock() method
+        // Use Instantiate() to create a clone of the 'KeyPoof' prefab at this coin's position and with the 'KeyPoof' prefab's rotation
+        // Use Destroy() to delete the key after for example 0.5 seconds
+        door.Unlock();
+
+    }
 }
